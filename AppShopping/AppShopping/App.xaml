@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppShopping.App">
+    <Application.Resources>
+
+
+        <ResourceDictionary>
+            <Color x:Key="White">#FFFFFF</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Color x:Key="LightGray">#F9F9F9</Color>
+
+            <Color x:Key="TextPrimaryColor">#000000</Color>
+            <Color x:Key="TextSecondColor">#A0A0A0A0</Color>
+
+            <Color x:Key="PrimaryColor">#F86237</Color>
+
+            <Color x:Key="SuccessColor">#1BAB42</Color>
+            <Color x:Key="ErrorColor">#F44343</Color>
+
+
+            <Style TargetType="Element" x:Key="FlyoutBaseStyle">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource White}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="Shell.NavBarHasShadow" Value="False" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource Black}"/>
+            </Style>
+
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource FlyoutBaseStyle}"/>
+
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource LightGray}"/>
+            </Style>
+
+            <Style TargetType="Label" >
+                <Setter Property="FontFamily" Value="MontserratRegular"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="MenuHeaderLabel">
+                <Setter Property="FontFamily" Value="MontserratBold" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
