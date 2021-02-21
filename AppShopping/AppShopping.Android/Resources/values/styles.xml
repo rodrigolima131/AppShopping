@@ -14,10 +14,15 @@
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
     <!--<item name="colorAccent">#FF4081</item>-->
+  <item name="colorAccent">#F86237</item>
   <item name="android:statusBarColor">#FFFFFF</item>
   <item name="android:windowLightStatusBar">true</item>
+  <item name="android:editTextStyle">@style/@MainTheme.EditText"</item>
   </style>
   
+  <style name="MainTheme.EditText" parent="@android:style/Widget.EditText">
+    <item name=" name=android:background">@android:color/transparent</item>
+  </style> 
 
   <style name="MainTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
     <item name="android:windowBackground">@drawable/splashscreen</item>

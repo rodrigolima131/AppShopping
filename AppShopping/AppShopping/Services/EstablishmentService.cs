@@ -157,7 +157,7 @@ namespace AppShopping.Services
                 {
                     Id = 15,
                     Type = EstablishmentType.Store,
-                    Logo = "https://scontent.fbsb16-1.fna.fbcdn.net/v/t1.0-1/cp0/p40x40/32530741_1756089587820698_2942969221090377728_o.png?_nc_cat=103&ccb=2&_nc_sid=dbb9e7&_nc_ohc=-6Rj2o-DEEYAX8klDV3&_nc_ht=scontent.fbsb16-1.fna&_nc_tp=30&oh=8e62d997241361eca89cd00ee4cff32d&oe=6008EA19",
+                    Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOhQUiWP4ncMYcc9i-nv9xGYmjWapjp67ybA&usqp=CAU",
                     Name = "PARIS JÓIAS",
                     Description = "A Paris Jóias é uma loja de jóias e semi jóias que atrai pelo glamour e design das peças.",
                     Address = "1 Andar - Loja 35 - Entrada Sul",
@@ -167,11 +167,11 @@ namespace AppShopping.Services
                 {
                     Id = 16,
                     Type = EstablishmentType.Store,
-                    Logo = "https://scontent.fbsb16-1.fna.fbcdn.net/v/t1.0-9/73057735_2792663367412106_2803336995324035072_n.png?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_ohc=eWlalGifPSUAX-fNdXh&_nc_ht=scontent.fbsb16-1.fna&oh=6bb8b45e83b5d8b4c4ac866e4f4461b1&oe=6008A509",
-                    Name = "COOL CAT",
-                    Description = "A Cool Cat é uma loja de roupas casuais para homens e mulheres, com foco na moda surfware e streetware.",
-                    Address = "1 Andar - Loja 36 - Entrada Sul",
-                    Phone = "61 3491-2407",
+                    Logo = "https://iguatemi.com.br/jkiguatemi/sites/jkiguatemi/files/2019-06/Le%20lis%20blanc.png",
+                    Name = "Le Lis Blanc",
+                    Description = "Com mais de três décadas de tradição e história, a Le Lis Blanc conquistou seu espaço oferecendo um amplo portfolio de produtos que vestem a mulher em todos os momentos da vida.",
+                    Address = "Piso Jundiaí, loja 242",
+                    Phone = "11 4588-0723",
                 },
                 new Establishment()
                 {

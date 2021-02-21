@@ -8,17 +8,28 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using AppShopping.Libraries.Enums;
 using System.ComponentModel;
+using AppShopping.Libraries.Helpers.MVVM;
 
 namespace AppShopping.ViewModels
 {
-    public class StoresViewModel
+    public class StoresViewModel : BaseViewModel
     {
 
         public String SearchWord { get; set; }
 
         public ICommand SearchCommand { get; set; }
 
-        public List<Establishment> Establishments { get; set; }
+
+
+        private List<Establishment> _establishiment;
+        public List<Establishment> Establishments { 
+            get {
+                return _establishiment;
+            }
+            set {
+                SetProperty(ref _establishiment, value);
+            }
+        }
 
         private List<Establishment> _allEstablishments;
 
