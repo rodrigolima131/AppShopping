@@ -20,11 +20,12 @@
     </ContentPage.BindingContext>
     
         <ContentPage.Content>
-        <StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="0" Padding="20">
             <Label Text="{Binding Establishment.Type,Converter={StaticResource EstablishmentTypeConverter}}" Style="{StaticResource TitleType}" />
             <Label Text="{Binding Establishment.Name}" Style="{StaticResource TitleName}"/>
-            <Frame>
-                <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*" RowDefinitions="Auto,Auto,Auto,Auto,20,Auto,Auto">
+            <Frame Padding="10,10,10,30" Margin="0,26,0,0">
+                <Grid ColumnDefinitions="1*,1*,1*,1*,1*,1*" RowDefinitions="Auto,Auto,20,Auto,Auto,20,Auto,Auto">
                     <Image Source="{Binding Establishment.Logo}" WidthRequest="48" HorizontalOptions="Center"  Margin="10" Grid.ColumnSpan="2" />
                     <Label Text="{Binding Establishment.Name}" VerticalOptions="Center" Grid.Column="2" Grid.ColumnSpan="4" Style="{StaticResource NameEstablishment}"/>
                     <Label Text="{Binding Establishment.Description}"  Grid.Row="1" Grid.ColumnSpan="6" Style="{StaticResource DescriptionEstablishment}"/>
@@ -39,5 +40,6 @@
                 </Grid>
             </Frame>
         </StackLayout>
+       </ScrollView>
     </ContentPage.Content>
 </ContentPage>

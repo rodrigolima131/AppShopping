@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using AppShopping.Libraries.Enums;
 using System.ComponentModel;
 using AppShopping.Libraries.Helpers.MVVM;
+using Newtonsoft.Json;
 
 namespace AppShopping.ViewModels
 {
@@ -33,9 +34,12 @@ namespace AppShopping.ViewModels
 
         private List<Establishment> _allEstablishments;
 
+        public ICommand DetailCommand { get; set; }
+
         public StoresViewModel()
         {
             SearchCommand = new Command(Search);
+            DetailCommand = new Command<Establishment>(Detail);
 
             var allEstablishment = new EstablishmentService().GetEstablishments();
 
@@ -49,6 +53,13 @@ namespace AppShopping.ViewModels
         {
             //TODO - Lógica de filtrar a lista de lojas.
            Establishments =  _allEstablishments.Where(a => a.Name.ToLower().Contains(SearchWord.ToLower())).ToList();
+        }
+        
+        private void Detail(Establishment establishment)
+        {
+            //TODO -> Shell > GoTo - > EstablishmentDetail
+            String establishmentSerialized = JsonConvert.SerializeObject(establishment);
+            Shell.Current.GoToAsync($"establishment/detail?establishmentSerialized={Uri.EscapeDataString(establishmentSerialized)}");
         }
     }
 }
