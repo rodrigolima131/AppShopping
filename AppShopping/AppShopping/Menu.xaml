@@ -14,7 +14,7 @@
     </Shell.FlyoutHeader>
     <FlyoutItem Title="Principais" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Lojas" Icon="MenuIconStore" ContentTemplate="{DataTemplate views:Stores}"/>
-        <ShellContent Title="Restaurantes" Icon="MenuIconRestaurant" ContentTemplate="{DataTemplate views:Stores}"/>
+        <ShellContent Title="Restaurantes" Icon="MenuIconRestaurant" ContentTemplate="{DataTemplate views:Restaurants}"/>
         <ShellContent Title="Cinema" Icon="MenuIconCinema" ContentTemplate="{DataTemplate views:Stores}"/>
         <ShellContent Title="Ticket" Icon="MenuIconTicket" ContentTemplate="{DataTemplate views:Stores}"/>
     </FlyoutItem>

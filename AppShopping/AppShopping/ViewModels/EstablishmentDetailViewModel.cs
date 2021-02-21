@@ -10,11 +10,11 @@ using Newtonsoft.Json;
 
 namespace AppShopping.ViewModels
 {
-    [QueryProperty("establishmentSerialized", "establishmentSerialized")]
+    [QueryProperty("EstablishmentSerialized", "establishmentSerialized")]
     public class EstablishmentDetailViewModel : BaseViewModel
     {
         public Establishment Establishment { get; set; }
-        public String establishmentSerialized { 
+        public String EstablishmentSerialized { 
             set {
                 Establishment = JsonConvert.DeserializeObject<Establishment>(Uri.UnescapeDataString(value));
                 OnPropertyChanged(nameof(Establishment));

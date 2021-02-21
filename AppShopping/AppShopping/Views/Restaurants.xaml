@@ -3,40 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:AppShopping.ViewModels"
              xmlns:enums="clr-namespace:AppShopping.Libraries.Enums"
-             x:Name="StorePage"
-             x:Class="AppShopping.Views.Stores">
-
+             x:Name="RestaurantsPage"
+             x:Class="AppShopping.Views.Restaurants">
     <Shell.TitleView>
         <ContentView>
             <Image Source="TitleViewLogo" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
         </ContentView>
     </Shell.TitleView>
-    
+
+
     <ContentPage.BindingContext>
-        <viewModels:StoresViewModel>
+        <viewModels:RestaurantsViewModel>
             <x:Arguments>
-                <enums:EstablishmentType>Store</enums:EstablishmentType>
+                <enums:EstablishmentType>Restaurant</enums:EstablishmentType>
             </x:Arguments>
-        </viewModels:StoresViewModel>
+        </viewModels:RestaurantsViewModel>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <StackLayout>
             <Grid ColumnDefinitions="*,70" RowDefinitions="50" Margin="10,0">
                 <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
                     <Entry Text="{Binding SearchWord}" Placeholder="Pesquisa"/>
                 </Frame>
-               
+
                 <Button Command="{Binding SearchCommand}" Grid.Column="1" Text="OK" Style="{StaticResource PrimaryButton}"/>
             </Grid>
-     
+
             <CollectionView ItemsSource="{Binding Establishments}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView Padding="10">
                             <Frame CornerRadius="0" HasShadow="False" BorderColor="{StaticResource BorderColor}" Padding="1">
                                 <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={x:Reference StorePage}, Path=BindingContext.DetailCommand}" CommandParameter="{Binding .}" />
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference RestaurantsPage}, Path=BindingContext.DetailCommand}" CommandParameter="{Binding .}" />
                                 </Frame.GestureRecognizers>
                                 <Grid ColumnDefinitions="1*,1,2*" RowDefinitions="96">
                                     <Image HeightRequest="80" Source="{Binding Logo}" Margin="10"/>
@@ -48,6 +48,8 @@
                                 </Grid>
                             </Frame>
                         </ContentView>
+
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
