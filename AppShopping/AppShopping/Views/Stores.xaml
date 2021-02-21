@@ -33,7 +33,7 @@
                                     <Line Grid.Column="1"   X1="0" X2="0" Y1="10" Y2="86"/>
                                     <StackLayout Grid.Column="2"  Margin="10">
                                         <Label Text="{Binding Name}" Style="{StaticResource NameEstablishment}" />
-                                        <Label Text="{Binding Description}" MaxLines="3" Style="{StaticResource Description}"/>
+                                        <Label Text="{Binding Description}" MaxLines="3" Style="{StaticResource DescriptionEstablishment}"/>
                                     </StackLayout>
                                 </Grid>
                             </Frame>
