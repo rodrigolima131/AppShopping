@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:AppShopping.Views"
              x:Class="AppShopping.Menu">
-
     <Shell.FlyoutHeader>
         <Grid Padding="0,25" BackgroundColor="{StaticResource PrimaryColor}" ColumnDefinitions="1*,2*" RowDefinitions="Auto, Auto">
             <Image Source="BagWhite" Grid.RowSpan="2"/>
@@ -15,13 +14,11 @@
     <FlyoutItem Title="Principais" FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent Title="Lojas" Icon="MenuIconStore" ContentTemplate="{DataTemplate views:Stores}"/>
         <ShellContent Title="Restaurantes" Icon="MenuIconRestaurant" ContentTemplate="{DataTemplate views:Restaurants}"/>
-        <ShellContent Title="Cinema" Icon="MenuIconCinema" ContentTemplate="{DataTemplate views:Stores}"/>
+        <ShellContent Title="Cinema" Icon="MenuIconCinema" ContentTemplate="{DataTemplate views:Cinema}"/>
         <ShellContent Title="Ticket" Icon="MenuIconTicket" ContentTemplate="{DataTemplate views:Stores}"/>
     </FlyoutItem>
     <ShellContent Title="Novidades" Icon="MenuIconNews" ContentTemplate="{DataTemplate views:Stores}"/>
     <ShellContent Title="Como Chegar" Icon="MenuIconMaps" ContentTemplate="{DataTemplate views:Stores}"/>
     <ShellContent Title="Wifi" Icon="MenuIconWifi" ContentTemplate="{DataTemplate views:Stores}"/>
-    <ShellContent Title="EstablishmentDetail" Icon="MenuIconWifi" ContentTemplate="{DataTemplate views:EstablishmentDetail}"/>
-    
-
+    <ShellContent Title="Film Detail" Icon="MenuIconWifi" ContentTemplate="{DataTemplate views:FilmDetail}"/>
 </Shell>
