@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:AppShopping.ViewModels"
+             x:Name="CinemaPage"
              x:Class="AppShopping.Views.Cinema">
 
     <Shell.TitleView>
@@ -13,16 +14,19 @@
     <ContentPage.BindingContext>
         <viewModels:CinemaViewModel/>
     </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Label Text="Filmes no" Style="{StaticResource TitleType}" />
             <Label Text="CINEMA" Style="{StaticResource TitleName}"/>
-
             <CollectionView ItemsSource="{Binding Films}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView Padding="0,5">
                             <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference CinemaPage}, Path=BindingContext.FilmDetailCommand }" CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
                                 <Grid ColumnDefinitions="1*,1,2*" RowDefinitions="140">
                                     <Image HeightRequest="115" Source="{Binding Cover}" Margin="10"/>
                                     <Line Grid.Column="1"   X1="0" X2="0" Y1="10" Y2="140"/>
