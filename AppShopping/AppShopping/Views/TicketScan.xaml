@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppShopping.Views.TicketScan">
+    <Shell.TitleView>
+        <ContentView>
+            <Image Source="TitleViewLogo" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </ContentView>
+    </Shell.TitleView>
+    
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Pague o seu" Style="{StaticResource TitleType}"/>
+            <Label Text="Ticket" Style="{StaticResource TitleName}"  />
+            <Grid ColumnDefinitions="*,70" RowDefinitions="50" Margin="0,15">
+                <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
+                    <Entry  Placeholder="Escanear ticket"/>
+                </Frame>
+                <Button  ImageSource="photograph"  Grid.Column="1"  Style="{StaticResource PrimaryButton}"/>
+            </Grid>
+            <Label Text="Ticket não encontrado!" TextColor="{StaticResource ErrorColor}"/>
+
+            <Button Text="Tickets pagos" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Style="{StaticResource TicketButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
