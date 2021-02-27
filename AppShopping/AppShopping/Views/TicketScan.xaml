@@ -1,27 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AppShopping.ViewModels"
              x:Class="AppShopping.Views.TicketScan">
     <Shell.TitleView>
         <ContentView>
             <Image Source="TitleViewLogo" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
         </ContentView>
     </Shell.TitleView>
-    
-    
-    <ContentPage.Content>
+
+    <ContentPage.BindingContext>
+        <viewModels:TicketScanViewModel/>
+    </ContentPage.BindingContext>
+        <ContentPage.Content>
         <StackLayout Padding="10">
             <Label Text="Pague o seu" Style="{StaticResource TitleType}"/>
             <Label Text="Ticket" Style="{StaticResource TitleName}"  />
             <Grid ColumnDefinitions="*,70" RowDefinitions="50" Margin="0,15">
                 <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
-                    <Entry  Placeholder="Escanear ticket"/>
+                    <Entry Text="{Binding TicketNumber}" Placeholder="Escanear ticket"/>
                 </Frame>
-                <Button  ImageSource="photograph"  Grid.Column="1"  Style="{StaticResource PrimaryButton}"/>
+                <Button  Command="{Binding TicketScanCommand}" ImageSource="photograph"  Grid.Column="1"  Style="{StaticResource PrimaryButton}"/>
             </Grid>
-            <Label Text="Ticket não encontrado!" TextColor="{StaticResource ErrorColor}"/>
+            <Label Text="{Binding Message}" TextColor="{StaticResource ErrorColor}"/>
 
-            <Button Text="Tickets pagos" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Style="{StaticResource TicketButton}"/>
+            <Button Command="{Binding TicketPaidHistoryCommand}" Text="Tickets pagos" VerticalOptions="EndAndExpand" HorizontalOptions="Center" Style="{StaticResource TicketButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
