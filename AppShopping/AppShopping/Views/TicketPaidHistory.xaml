@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AppShopping.ViewModels"
+             x:Class="AppShopping.Views.TicketPaidHistory">
+    <Shell.TitleView>
+        <ContentView>
+            <Image Source="TitleViewLogo" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
+        </ContentView>
+    </Shell.TitleView>
+    <ContentPage.BindingContext>
+        <viewModels:TicketPaidHistoryViewModel/>
+    </ContentPage.BindingContext>
+    
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Tickets" Style="{StaticResource TitleType}"/>
+            <Label Text="Pagos" Style="{StaticResource TitleName}"  />
+
+         
+            <CollectionView ItemsSource="{Binding Tickets}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="10">
+                            <Frame>
+                                <StackLayout>
+                                    <Label>
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}Ticket #{0} ">
+                                                <Binding Path="Number"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label Text="Permanencia 3h 10m"/>
+                                    <Label>
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}Entrada: {0} ">
+                                                <Binding Path="StartDate"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label>
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}Saída: {0} ">
+                                                <Binding Path="EndDate"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label>
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}Valor: R$ {0} ">
+                                                <Binding Path="Price"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
