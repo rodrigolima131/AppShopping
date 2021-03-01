@@ -68,8 +68,7 @@ namespace AppShopping.ViewModels
             try
             {
                 var ticket = new TicketService().GetTicketInfo(ticketNumber);
-
-                //Todo  - Navegar para a página de pagamento do Ticket
+                Shell.Current.GoToAsync($"ticket/payment?number={ticketNumber}");
             }catch(Exception e)
             {
                 Message = e.Message;
