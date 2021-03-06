@@ -12,6 +12,7 @@ namespace AppShopping.Models
         public DateTime? EndDate { get; set; }
         public TicketStatus Status { get; set; }
         public Decimal Price { get; set; }
+        public string TransactionID { get; set; }
 
     }
 }

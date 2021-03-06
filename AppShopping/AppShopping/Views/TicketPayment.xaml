@@ -7,7 +7,7 @@
              xmlns:behaviors="clr-namespace:AppShopping.Libraries.Behaviors"
              xmlns:viewModels="clr-namespace:AppShopping.ViewModels"
              x:Class="AppShopping.Views.TicketPayment">
-    
+
     <Shell.TitleView>
         <ContentView>
             <Image Source="TitleViewLogo" HorizontalOptions="Start" VerticalOptions="Center" HeightRequest="30"/>
@@ -71,40 +71,41 @@
 
 
             <!-- Cartão de Crédito-->
-                <yummy:PancakeView Padding="10" Margin="1" BackgroundColor="White">
-                    <yummy:PancakeView.Border>
-                        <yummy:Border Color="Black"  Thickness="1" DashPattern="4,15" />
-                    </yummy:PancakeView.Border>
-                    <StackLayout>
-                        <Label Style="{StaticResource NameEstablishment}" Text="Cartão de Crédito" />
+            <yummy:PancakeView Padding="10" Margin="1" BackgroundColor="White">
+                <yummy:PancakeView.Border>
+                    <yummy:Border Color="Black"  Thickness="1" DashPattern="4,15" />
+                </yummy:PancakeView.Border>
+                <StackLayout>
+                    <Label Style="{StaticResource NameEstablishment}" Text="Cartão de Crédito" />
                     <Label Text="insira os dados do cartão para pagar o estacionamento" Style="{StaticResource DescriptionEstablishment}"/>
+                    <Label Text="{Binding Messages}" Style="{StaticResource DescriptionEstablishment}" TextColor="Red"/>
+                    
                     <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
-                        <Entry Placeholder="Nome no cartão" Style="{StaticResource EntryPayment}"/>
+                        <Entry Placeholder="Nome no cartão" Style="{StaticResource EntryPayment}" Text="{Binding CreditCard.Name}"/>
                     </Frame>
 
-                        <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
-
-                        <control:MaskedEntry  Mask="XXXX XXXX  XXXX XXXX" Placeholder="Numero do cartão" Style="{StaticResource EntryPayment}"/>
+                    <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
+                        <control:MaskedEntry Keyboard="Numeric"  Mask="XXXX XXXX  XXXX XXXX" Placeholder="Numero do cartão" Style="{StaticResource EntryPayment}" Text="{Binding CreditCard.Number}"/>
                     </Frame>
 
 
-                        <Grid ColumnDefinitions="*,*" RowDefinitions="50">
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="50">
                         <Frame Padding="10, 0" Grid.Column="0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
-                            <control:MaskedEntry  Mask="Xx/AA" Placeholder="validade MM/AA" Style="{StaticResource EntryPayment}"/>
+                            <control:MaskedEntry  Keyboard="Numeric" Mask="Xx/AA" Placeholder="validade MM/AA" Style="{StaticResource EntryPayment}" Text="{Binding CreditCard.DataExpired}"/>
                         </Frame>
                         <Frame Padding="10, 0" Grid.Column="1"  HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
-                            <control:MaskedEntry  Mask="XXX" Placeholder="Cod. Segurança" Style="{StaticResource EntryPayment}"  />
+                            <control:MaskedEntry Keyboard="Numeric" Mask="XXX" Placeholder="Cod. Segurança" Style="{StaticResource EntryPayment}" Text="{Binding CreditCard.SecurityCard}" />
                         </Frame>
 
-                        </Grid>
+                    </Grid>
 
-                        <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
-                        <control:MaskedEntry  Mask="XXX.XXX.XXX-XX" Placeholder="CPF" Style="{StaticResource EntryPayment}"/>
+                    <Frame Padding="10, 0" HasShadow="False" BorderColor="{StaticResource BorderColor}" CornerRadius="0">
+                        <control:MaskedEntry Keyboard="Numeric"  Mask="XXX.XXX.XXX-XX" Placeholder="CPF" Text="{Binding CreditCard.Document}" Style="{StaticResource EntryPayment}"/>
                     </Frame>
-                        <Label Text="Usaremos este CPF para emitir a nota legal"/>
-                    </StackLayout>
-                </yummy:PancakeView>
-                <Button Text="Pagar" Style="{StaticResource TicketButton}" Margin="0,10"/>
+                    <Label Text="Usaremos este CPF para emitir a nota legal"  Style="{StaticResource DescriptionEstablishment}"/>
+                </StackLayout>
+            </yummy:PancakeView>
+            <Button Text="Pagar" Style="{StaticResource TicketButton}" Command="{Binding PaymentCommand}" Margin="0,10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

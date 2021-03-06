@@ -9,7 +9,7 @@ namespace AppShopping.Services
 {
     public class TicketService
     {
-        private List<Ticket> fakeTickets = new List<Ticket>()
+        private static List<Ticket> fakeTickets = new List<Ticket>()
         {
             new Ticket(){Number="109703757667",StartDate = new DateTime(2020,10,20,16,02,32),EndDate = new DateTime(2020,10,20,18,02,32),Price=6.20m,Status=TicketStatus.paid},
             new Ticket(){Number="109703757669",StartDate = new DateTime(2020,10,20,14,02,32),EndDate = new DateTime(2020,10,20,17,02,32),Price=12.20m,Status=TicketStatus.paid},
@@ -38,6 +38,18 @@ namespace AppShopping.Services
             return ticket;
         }
 
+
+        public void UpdateTicket(Ticket newTicket)
+        {
+
+            var oldticket = fakeTickets.FirstOrDefault(a => a.Number == newTicket.Number);
+
+            oldticket.TransactionID = newTicket.TransactionID;
+            oldticket.Price = newTicket.Price;
+            oldticket.Status = newTicket.Status;
+            oldticket.EndDate = newTicket.EndDate;
+
+        }
         private double PriceCalculator(Ticket ticket)
         {
             TimeSpan dif = ticket.EndDate.Value - ticket.StartDate;
